@@ -1,9 +1,10 @@
-const fetchImages =  require("./apiCalls");
-
+/* eslint-disable no-undef */
+// const fetchImages = require("./apiCalls");
+import fetchImages from "./apiCalls";
 
 describe("apiCalls", () => {
   let mockImages;
-  let options
+  let options;
 
   beforeEach(() => {
     mockImages = { results: [{ title: "A" }, { title: "B" }] };
@@ -44,7 +45,7 @@ describe("apiCalls", () => {
     });
 
     expect(fetchImages("https://api.unsplash.com/")).rejects.toEqual(
-      Error("Error fetching movies")
+      Error("Error fetching images")
     );
   });
 });
