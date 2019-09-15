@@ -18,3 +18,5 @@ const fetchImages = async url => {
     throw new Error();
   }
 }
+
+module.exports = fetchImages;

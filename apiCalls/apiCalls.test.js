@@ -1,11 +1,19 @@
-import { fetchImages } from "./apiCalls";
-import jest from "jest";
+const fetchImages =  require("./apiCalls");
+
 
 describe("apiCalls", () => {
   let mockImages;
+  let options
 
   beforeEach(() => {
     mockImages = { results: [{ title: "A" }, { title: "B" }] };
+    options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `client_id ${process.env.ACCESS_KEY}`
+      }
+    };
 
     window.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
@@ -15,20 +23,20 @@ describe("apiCalls", () => {
     });
   });
 
-  it.skip("should be called with the correct URL", () => {
+  it("should be called with the correct URL", () => {
     const expected = "https://api.unsplash.com/";
 
-    fetchImages("https://api.unsplash.com/");
-    expect(window.fetch).toHaveBeenCalledWith(expected);
+    fetchImages("https://api.unsplash.com/", options);
+    expect(window.fetch).toHaveBeenCalledWith(expected, options);
   });
 
-  it.skip("HAPPY: should return with a parsed response", async () => {
-    const result = await fetchImages("https://api.unsplash.com/");
+  it("HAPPY: should return with a parsed response", async () => {
+    const result = await fetchImages("https://api.unsplash.com/", options);
 
-    expect(result).toEqual(mockImages.results);
+    expect(result).toEqual(mockImages);
   });
 
-  it.skip("SAD: should return an error if the answer is not ok", () => {
+  it("SAD: should return an error if the answer is not ok", () => {
     window.fetch = jest.fn().mockImplementation(() => {
       return Promise.resolve({
         ok: false
