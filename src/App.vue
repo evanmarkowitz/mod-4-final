@@ -1,13 +1,16 @@
 <template>
   <div id="app">
-    <h2 id="headline">vue it</h2>
-    <img alt="Vue logo" src="./assets/logo.png" id="vue-logo" />
+    <section class='tag-line'>
+      <img alt="Vue logo" src="./assets/logo.png" id="vue-logo" />
+      <h2 id="headline">ue it</h2>
+    </section>
     <SearchInput />
   </div>
 </template>
 
 <script>
 import SearchInput from "./components/SearchInput";
+// const SearchInput = require("./components/SearchInput");
 
 export default {
   name: "app",
@@ -24,14 +27,19 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  /* margin-top: 0px; */
+}
+
+.tag-line {
+  display: flex;
+  justify-content: center;
 }
 
 #vue-logo {
-  width: 10%;
+  height: 100px;
 }
 
 #headline {
-  margin-top: 10px;
+  margin-top: 40px;
+  margin-left: -20px;
 }
 </style>

@@ -16,7 +16,6 @@ const fetchImages = async url => {
   } catch (error) {
     throw new Error(error.message);
   }
-}
+};
 
-// export default fetchImages;
 module.exports = fetchImages;

@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
-// const fetchImages = require("./apiCalls");
-import fetchImages from "./apiCalls";
+const fetchImages = require("./apiCalls");
+
 
 describe("apiCalls", () => {
   let mockImages;
@@ -9,10 +9,10 @@ describe("apiCalls", () => {
   beforeEach(() => {
     mockImages = { results: [{ title: "A" }, { title: "B" }] };
     options = {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `client_id ${process.env.ACCESS_KEY}`
+        Authorization: `Client-ID ${process.env.ACCESS_KEY}`
       }
     };
 
