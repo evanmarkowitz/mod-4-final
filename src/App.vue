@@ -1,16 +1,14 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
+    <h2 id="headline">vue it</h2>
+    <img alt="Vue logo" src="./assets/logo.png" id="vue-logo" />
     <SearchInput />
-    
-    
-    <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   </div>
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
-import SearchInput from "./components/SearchInput"
+import SearchInput from "./components/SearchInput";
 
 export default {
   name: "app",
@@ -27,6 +25,14 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  /* margin-top: 0px; */
+}
+
+#vue-logo {
+  width: 10%;
+}
+
+#headline {
+  margin-top: 10px;
 }
 </style>

@@ -19,3 +19,4 @@ const fetchImages = async url => {
 }
 
 export default fetchImages;
+// module.exports = fetchImages;

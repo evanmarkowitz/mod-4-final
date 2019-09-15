@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
-const fetchImages = require("./apiCalls");
+// const fetchImages = require("./apiCalls");
+import fetchImages from "./apiCalls";
 
 describe("apiCalls", () => {
   let mockImages;
