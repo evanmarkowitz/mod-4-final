@@ -3,7 +3,7 @@
     <div id="searchInput">
       <input v-model="query" id="query-input" />
       <p id="current-search">Current Search: {{ lastQuery }}</p>
-      <button v-on:click="fetchCurrentQuery(query)" id="query-button">
+      <button v-on:click="fetchCurrentQuery(query)" placeholder="enter search query" id="query-button">
         Find Images
       </button>
       {{ error }}
