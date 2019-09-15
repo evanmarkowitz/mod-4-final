@@ -1,8 +1,11 @@
-export const fetchImages = async (url) => {
+const fetchImages = async url => {
   try {
     const options = {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json',  'Authorization': `client_id ${process.env.ACCESS_KEY}`}
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `client_id ${process.env.ACCESS_KEY}`
+      }
     };
     const response = await fetch(url, options);
     if (!response.ok) {
