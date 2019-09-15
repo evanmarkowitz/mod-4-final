@@ -1,4 +1,5 @@
 const fetchImages = async url => {
+  console.log(process.env.ACCESS_KEY)
   try {
     const options = {
       method: "POST",
@@ -9,8 +10,8 @@ const fetchImages = async url => {
     };
     const response = await fetch(url, options);
     if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error);
+      // const error = await response.json();
+      throw new Error(response);
     }
     const parsed = await response.json();
     return parsed;
@@ -19,4 +20,4 @@ const fetchImages = async url => {
   }
 }
 
-module.exports = fetchImages;
+export default fetchImages
