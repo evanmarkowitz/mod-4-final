@@ -10,7 +10,6 @@
 </template>
 
 <script>
-// const fetchImages = require("../../apiCalls/apiCalls");
 import fetchImages from "../../apiCalls/apiCalls";
 const buildUrl = searchQuery => {
   return `https://api.unsplash.com/search/photos?page=1&query=${searchQuery}`;

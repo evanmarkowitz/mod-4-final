@@ -7,7 +7,6 @@
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 import SearchInput from "./components/SearchInput";
 
 export default {
