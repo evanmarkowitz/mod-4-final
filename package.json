@@ -10,8 +10,6 @@
   },
   "dependencies": {
     "@babel/core": "^7.6.0",
-    "@vue/test-utils": "^1.0.0-beta.29",
-    "babel-jest": "^24.9.0",
     "core-js": "^2.6.5",
     "vue": "^2.6.10"
   },
@@ -21,8 +19,11 @@
     "@vue/cli-plugin-eslint": "^3.11.0",
     "@vue/cli-service": "^3.11.0",
     "@vue/eslint-config-prettier": "^5.0.0",
+    "@vue/test-utils": "^1.0.0-beta.29",
     "babel-core": "^7.0.0-bridge.0",
     "babel-eslint": "^10.0.1",
+    "babel-jest": "^24.9.0",
+    "babel-polyfill": "^6.26.0",
     "eslint": "^5.16.0",
     "eslint-plugin-prettier": "^3.1.0",
     "eslint-plugin-vue": "^5.0.0",
@@ -52,7 +53,7 @@
       "vue"
     ],
     "transform": {
-      ".*\\.(vue)$": "vue-jest"
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest"
     }
   },
   "postcss": {
