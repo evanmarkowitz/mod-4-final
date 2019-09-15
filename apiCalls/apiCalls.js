@@ -1,23 +1,21 @@
 const fetchImages = async url => {
-  console.log(process.env.ACCESS_KEY)
   try {
     const options = {
-      method: "POST",
+      method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `client_id ${process.env.ACCESS_KEY}`
+        Authorization: `Client-ID ${process.env.VUE_APP_ACCESS_KEY}`
       }
     };
     const response = await fetch(url, options);
     if (!response.ok) {
-      // const error = await response.json();
-      throw new Error(response);
+      throw new Error(response.message);
     }
     const parsed = await response.json();
     return parsed;
   } catch (error) {
-    throw new Error();
+    throw new Error(error.message);
   }
 }
 
-export default fetchImages
+export default fetchImages;
