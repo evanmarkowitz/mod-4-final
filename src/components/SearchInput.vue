@@ -1,6 +1,7 @@
 <template>
   <div id="searchInput">
     <input v-model="query">
+    {{lastQuery}}
     <button v-on:click="fetchCurrentQuery(query)">Find Images</button>
   </div>
 </template>
@@ -14,7 +15,9 @@
     name: 'SearchInput',
     data () {
       return {
-        query: 'hi'
+        query: 'hi',
+        lastQuery: '',
+        data: []
       }
   },
     methods: {
@@ -22,7 +25,10 @@
         const url = await buildUrl(query)
         try{
           let response = await fetchImages(url)
-          await console.log(response)
+          let urlArray = response.results.map(img => img.urls.regular)
+          this.data = urlArray
+          this.lastQuery = this.query
+          this.query = ''
         } catch(error) {
           await console.log(error)
         }
