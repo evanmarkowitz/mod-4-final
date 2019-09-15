@@ -9,8 +9,10 @@
       {{ error }}
     </div>
     <ImageContainer v-bind:data="data"/>
-    <button v-on:click="hitNext(-1)">Previous</button>
-    <button v-on:click="hitNext(1)">Next</button>
+    <section class='next-prev-section'>
+      <button v-on:click="hitNext(-1)" class='control-button'>Previous</button>
+      <button v-on:click="hitNext(1)" class='control-button'>Next</button>
+    </section>
   </main>
 </template>
 
@@ -38,6 +40,7 @@ export default {
   },
   methods: {
     fetchCurrentQuery: async function(query) {
+      this.pageNum = 1
       const url = await buildUrl(this.pageNum, query);
       try {
         let response = await fetchImages(url);
@@ -84,6 +87,18 @@ export default {
   text-align: left;
   padding: 5px, 0, 5px, 10px;
   font-size: 1.5rem;
+}
+
+.control-button {
+  width: 115px;
+  height: 25px;
+  font-size: 1rem;
+  background-color: #41B883;
+}
+
+.next-prev-section {
+  display: flex;
+  justify-content: space-around;
 }
 </style>
 
