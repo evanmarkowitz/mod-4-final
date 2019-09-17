@@ -3,22 +3,26 @@
     <div id="searchInput">
       <input v-model="query" id="query-input" />
       <p id="current-search">Current Search: {{ lastQuery }}</p>
-      <button v-on:click="fetchCurrentQuery(query)" placeholder="enter search query" id="query-button">
+      <button
+        v-on:click="fetchCurrentQuery(query)"
+        placeholder="enter search query"
+        id="query-button"
+      >
         Find Images
       </button>
       {{ error }}
     </div>
-    <ImageContainer v-bind:data="data"/>
-    <section class='next-prev-section'>
-      <button v-on:click="hitNext(-1)" class='control-button'>Previous</button>
-      <button v-on:click="hitNext(1)" class='control-button'>Next</button>
+    <ImageContainer v-bind:data="data" />
+    <section class="next-prev-section">
+      <button v-on:click="hitNext(-1)" class="control-button">Previous</button>
+      <button v-on:click="hitNext(1)" class="control-button">Next</button>
     </section>
   </main>
 </template>
 
 <script>
 const fetchImages = require("../../apiCalls/apiCalls");
-import ImageContainer from './ImageContainer'
+import ImageContainer from "./ImageContainer";
 
 const buildUrl = (pageNum, searchQuery) => {
   return `https://api.unsplash.com/search/photos?page=${pageNum}&query=${searchQuery}`;
@@ -40,7 +44,7 @@ export default {
   },
   methods: {
     fetchCurrentQuery: async function(query) {
-      this.pageNum = 1
+      this.pageNum = 1;
       const url = await buildUrl(this.pageNum, query);
       try {
         let response = await fetchImages(url);
@@ -54,18 +58,17 @@ export default {
     },
     hitNext: async function(number) {
       if (number > 0) {
-        this.pageNum += 1
+        this.pageNum += 1;
       } else if (number < 0 && this.pageNum !== 1) {
-        this.pageNum -= 1
+        this.pageNum -= 1;
       }
       const url = await buildUrl(this.pageNum, this.lastQuery);
       let response = await fetchImages(url);
       let urlArray = response.results.map(img => img.urls.regular);
       this.data = urlArray;
     }
-  },
+  }
 };
-
 </script>
 
 <style>
@@ -93,7 +96,7 @@ export default {
   width: 115px;
   height: 25px;
   font-size: 1rem;
-  background-color: #41B883;
+  background-color: #41b883;
 }
 
 .next-prev-section {
@@ -101,5 +104,3 @@ export default {
   justify-content: space-around;
 }
 </style>
-
-

@@ -1,29 +1,26 @@
-# final
+## Vue It
 
-## Project setup
+## Description
+Vue it allows users to search images from the Unsplash API.  It was built in Vue.
+
+## Installation
+
+```
+git clone https://github.com/evanmarkowitz/mod-4-final.git
+```
+Once you have cloned the repo, install the library dependencies. Run:
+
 ```
 npm install
 ```
+To view the app in action, run the following command in your terminal:
 
-### Compiles and hot-reloads for development
 ```
 npm run serve
 ```
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## Screenshot
+[Screenshot](https://github.com/evanmarkowitz/mod-4-final/blob/master/src/images/vue-it.gif)
 
-### Run your tests
-```
-npm run test
-```
 
-### Lints and fixes files
-```
-npm run lint
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
