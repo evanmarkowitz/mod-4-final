@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <section class='tag-line'>
+    <section class="tag-line">
       <img alt="Vue logo" src="./assets/logo.png" id="vue-logo" />
       <h2 id="headline">ue it</h2>
     </section>
