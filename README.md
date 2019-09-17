@@ -20,7 +20,7 @@ npm run serve
 ```
 
 ## Screenshot
-[Screenshot](https://github.com/evanmarkowitz/mod-4-final/blob/master/src/images/vue-it.gif)
+![Screenshot](https://github.com/evanmarkowitz/mod-4-final/blob/master/src/images/vue-it.gif)
 
 
 
